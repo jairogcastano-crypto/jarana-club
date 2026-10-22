@@ -340,8 +340,7 @@ html:not(.motion) .time { display: none; }
 
 <main id="main">
   <section class="hero" aria-label="Portada">
-    <!-- visual de portada: añadir <source src="material/visuales/portada.mp4" type="video/mp4"> -->
-    <video class="hero-vis" id="vis" autoplay muted loop playsinline preload="none" poster="material/fotos/berlin-jarana-70-1920.webp" aria-hidden="true"></video>
+    <video class="hero-vis" id="vis" autoplay muted loop playsinline preload="none" poster="material/visuales/portada.webp" aria-hidden="true"><source src="material/visuales/portada-540.mp4" type="video/mp4" media="(max-width: 700px)"><source src="material/visuales/portada-1080.mp4" type="video/mp4"></video>
     <div class="hero-in">
       <h1><img class="hero-logo" src="material/marca/logo-amarillo.png" width="800" height="383" fetchpriority="high" alt="JARANA"></h1>
       <p class="hero-line label">JARANA · Almería</p>
@@ -589,9 +588,8 @@ html:not(.motion) .time { display: none; }
 (function () {
   var motion = document.documentElement.classList.contains('motion');
 
-  /* hero visual: 4K poster on big or dense screens; with reduced motion, poster only */
+  /* hero visual: with reduced motion, poster only */
   var vis = document.getElementById('vis');
-  if (innerWidth * (devicePixelRatio || 1) > 1920) vis.poster = 'material/fotos/berlin-jarana-70-3840.webp';
   if (!motion) { vis.removeAttribute('autoplay'); vis.pause(); }
 
   /* tickets from Revex: only https links, names shown as text, no dates and no vetoed words */
